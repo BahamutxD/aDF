@@ -172,8 +172,8 @@ function aDF:Init()
 	self:SetMovable(1)
 	self:EnableMouse(1)
 	self:RegisterForDrag("LeftButton")
-	self:SetBackdrop(backdrop) --border around the frame
-	self:SetBackdropColor(0,0,0,1)
+	self:SetBackdrop(nil) --no border around the frame
+	self:SetBackdropColor(0,0,0,0) -- transparent
 	self:SetScript("OnDragStart", aDF.Drag.StartMoving)
 	self:SetScript("OnDragStop", aDF.Drag.StopMovingOrSizing)
 	self:SetScript("OnMouseDown", function()
@@ -191,14 +191,14 @@ function aDF:Init()
     self.armor:SetPoint("CENTER", self, "CENTER", 0, 0)
     self.armor:SetFont("Fonts\\FRIZQT__.TTF", 24+gui_Optionsxy)
 	self.armor:SetShadowOffset(2,-2)
-    self.armor:SetText("aDF")
+    self.armor:Hide()
 
 	-- Resistance text
 	self.res = self:CreateFontString(nil, "OVERLAY")
     self.res:SetPoint("CENTER", self, "CENTER", 0, 20+gui_Optionsxy)
     self.res:SetFont("Fonts\\FRIZQT__.TTF", 14+gui_Optionsxy)
 	self.res:SetShadowOffset(2,-2)
-    self.res:SetText("Resistance")
+    self.res:Hide()
 	
 	-- for the debuff check function
 	aDF_tooltip = CreateFrame("GAMETOOLTIP", "buffScan")
@@ -360,8 +360,14 @@ function aDF:Update()
 				end
 				if i == "Sunder Armor" then
 					local elapsed = 30 - (GetTime() - sundered_at)
-					aDF_frames[i]["nr"]:SetText(aDF:GetDebuff(aDF_target,aDFSpells[i],1))
-					aDF_frames[i]["dur"]:SetText(format("%0.f",elapsed >= 0 and elapsed or 0))
+    
+					-- Set the font size for "nr" and "dur"
+					aDF_frames[i]["nr"]:SetFont("Fonts\\FRIZQT__.TTF", 32, "OUTLINE")  -- Change 32 to your desired size
+					aDF_frames[i]["dur"]:SetFont("Fonts\\FRIZQT__.TTF", 18, "OUTLINE") -- Change 16 to your desired size
+    
+					-- Update the text as usual
+					aDF_frames[i]["nr"]:SetText(aDF:GetDebuff(aDF_target, aDFSpells[i], 1))
+					aDF_frames[i]["dur"]:SetText(format("%0.f", elapsed >= 0 and elapsed or 0))
 				end
 				if i == "Armor Shatter" then
 					local elapsed = 45 - (GetTime() - shattered_at)
@@ -497,7 +503,7 @@ function aDF.Options:Gui()
 	self.Slider:SetWidth(200)
 	self.Slider:SetHeight(20)
 	self.Slider:SetPoint("CENTER", self, "CENTER", 0, 140)
-	self.Slider:SetMinMaxValues(1, 10)
+	self.Slider:SetMinMaxValues(1, 30)
 	self.Slider:SetValue(gui_Optionsxy)
 	self.Slider:SetValueStep(1)
 	getglobal(self.Slider:GetName() .. 'Low'):SetText('1')
