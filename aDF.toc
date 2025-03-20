@@ -5,6 +5,6 @@
 ## Notes: Armor and Debuff frame
 ## DefaultState: Enabled
 ## LoadOnDemand: 0
-## SavedVariablesPerCharacter: aDF_x, aDF_y, guiOptions, gui_Options, gui_chan, gui_Optionsxy
+## SavedVariablesPerCharacter: aDF_x, aDF_y, guiOptions, gui_Options, gui_chan, gui_Optionsxy, gui_Order
 
 aDF.lua

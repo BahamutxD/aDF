@@ -1,5 +1,3 @@
-This version has bigger icons and armor/resistances/bar to drag are hidden. To drag shift+click on invisible bar right above the icons.
-
 # aDF for WoW 1.12
 aDF adds a small HUD that standardizes critical info about your target's defences, including Armor, ~~Resists~~, and specific debuffs. This HUD should be useful to all DPS and Tank players who would play differently depending on the state of their enemy's defenses and vulnerabilities.
 
