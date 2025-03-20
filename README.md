@@ -7,18 +7,6 @@ aDF adds a small HUD that standardizes critical info about your target's defence
 
 
 
-The version for 1.12 exists on the `master` branch while a version with changes specific to TurtleWoW exists on the `masterturtle` branch.
-
-## Features
-* The HUD displays your current PVE target's armor and debuffs.
-* As enemy and friendly players' armor values are not exposed to the API by vmangos servers, the armor reading will not work in PVP. 
-* Hold Shift and left click to drag and move the HUD.
-* Right click the armor reading to share the value with others, or right click a debuff to announce if its up or not. 
-* Type `/adf options` to configure which debuffs are shown for you, and which chat channel announcements are made in.
-
-## Known issues
-
-See https://github.com/Zebouski/aDF/issues. Pull requests are welcome
 
 ## Credits
 
